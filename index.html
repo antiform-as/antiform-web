@@ -1,0 +1,190 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="theme-color" content="#060612" />
+    <title>Antiform</title>
+    <style>
+      *,
+      *::before,
+      *::after {
+        box-sizing: border-box;
+      }
+
+      html {
+        height: 100%;
+        overflow: hidden;
+        overscroll-behavior: none;
+      }
+
+      body {
+        margin: 0;
+        height: 100%;
+        overflow: hidden;
+        overscroll-behavior: none;
+        background: var(--sky-deep);
+        color: #e8eaf6;
+        -webkit-font-smoothing: antialiased;
+      }
+
+      :root {
+        --sky-deep: #030310;
+        --sky-mid: #0a0f2a;
+        --sky-glow: #121a3d;
+        --fade-height: clamp(3.5rem, 9vh, 7rem);
+        --sky-band: clamp(9rem, 32vh, 22rem);
+        --hero-height-at-width: calc(100vw * 497 / 1280);
+        --hero-max-height: calc(100dvh - var(--sky-band));
+      }
+
+      .page {
+        display: flex;
+        flex-direction: column;
+        width: 100vw;
+        height: 100vh;
+        height: 100dvh;
+        max-height: 100dvh;
+        overflow: hidden;
+        background: var(--sky-deep);
+      }
+
+      .hero {
+        position: relative;
+        z-index: 1;
+        flex: 0 0 auto;
+        margin-top: -6rem;
+        width: 100%;
+        max-height: var(--hero-max-height);
+        overflow: hidden;
+        line-height: 0;
+      }
+
+      .hero img {
+        display: block;
+        width: 100%;
+        height: min(var(--hero-height-at-width), var(--hero-max-height));
+        object-fit: cover;
+        object-position: top center;
+        -webkit-mask-image: linear-gradient(
+          to bottom,
+          #000 0%,
+          #000 calc(100% - var(--fade-height)),
+          transparent 100%
+        );
+        mask-image: linear-gradient(
+          to bottom,
+          #000 0%,
+          #000 calc(100% - var(--fade-height)),
+          transparent 100%
+        );
+      }
+
+      .sky {
+        position: relative;
+        z-index: 0;
+        flex: 1 1 auto;
+        width: 100%;
+        min-height: var(--sky-band);
+        margin-top: calc(-1 * var(--fade-height));
+        overflow: hidden;
+        background:
+          radial-gradient(ellipse 120% 80% at 50% 110%, var(--sky-glow) 0%, transparent 55%),
+          linear-gradient(to bottom, transparent 0%, var(--sky-mid) 35%, var(--sky-deep) 100%);
+      }
+
+      .stars {
+        position: absolute;
+        inset: 0;
+        pointer-events: none;
+      }
+
+      .stars::before,
+      .stars::after {
+        content: "";
+        position: absolute;
+        inset: -50%;
+        background-repeat: repeat;
+        animation: drift 120s linear infinite;
+      }
+
+      .stars::before {
+        background-image:
+          radial-gradient(3px 3px at 20px 30px, rgba(255, 255, 255, 0.95), transparent),
+          radial-gradient(3px 3px at 140px 90px, rgba(210, 225, 255, 0.85), transparent),
+          radial-gradient(3.5px 3.5px at 70px 160px, rgba(255, 255, 255, 0.75), transparent),
+          radial-gradient(3px 3px at 210px 40px, rgba(255, 248, 230, 0.8), transparent),
+          radial-gradient(3px 3px at 320px 120px, rgba(255, 255, 255, 0.7), transparent),
+          radial-gradient(3px 3px at 400px 200px, rgba(200, 220, 255, 0.65), transparent),
+          radial-gradient(3.5px 3.5px at 480px 60px, rgba(255, 255, 255, 0.9), transparent),
+          radial-gradient(3px 3px at 560px 170px, rgba(255, 255, 255, 0.55), transparent);
+        background-size: 600px 240px;
+        opacity: 0.9;
+      }
+
+      .stars::after {
+        background-image:
+          radial-gradient(2.5px 2.5px at 50px 80px, rgba(255, 255, 255, 0.45), transparent),
+          radial-gradient(2.5px 2.5px at 180px 20px, rgba(255, 255, 255, 0.35), transparent),
+          radial-gradient(2.5px 2.5px at 260px 140px, rgba(255, 255, 255, 0.4), transparent),
+          radial-gradient(2.5px 2.5px at 340px 70px, rgba(255, 255, 255, 0.3), transparent),
+          radial-gradient(2.5px 2.5px at 430px 190px, rgba(255, 255, 255, 0.38), transparent),
+          radial-gradient(2.5px 2.5px at 520px 110px, rgba(255, 255, 255, 0.32), transparent);
+        background-size: 580px 220px;
+        opacity: 0.55;
+        animation-duration: 180s;
+        animation-direction: reverse;
+      }
+
+      .twinkle {
+        position: absolute;
+        inset: 0;
+        pointer-events: none;
+        background-image:
+          radial-gradient(3.5px 3.5px at 18% 42%, rgba(255, 255, 255, 0.95), transparent),
+          radial-gradient(3px 3px at 72% 28%, rgba(255, 250, 235, 0.85), transparent),
+          radial-gradient(3px 3px at 44% 68%, rgba(220, 235, 255, 0.8), transparent),
+          radial-gradient(3.5px 3.5px at 86% 58%, rgba(255, 255, 255, 0.75), transparent),
+          radial-gradient(3px 3px at 58% 18%, rgba(255, 255, 255, 0.7), transparent);
+        animation: twinkle 6s ease-in-out infinite alternate;
+      }
+
+      @keyframes drift {
+        from {
+          transform: translate3d(0, 0, 0);
+        }
+        to {
+          transform: translate3d(-6%, -4%, 0);
+        }
+      }
+
+      @keyframes twinkle {
+        from {
+          opacity: 0.35;
+        }
+        to {
+          opacity: 1;
+        }
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        .stars::before,
+        .stars::after,
+        .twinkle {
+          animation: none;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <main class="page">
+      <section class="hero" aria-label="Antiform">
+        <img src="antiform.jpeg" width="1280" height="497" alt="" />
+      </section>
+      <div class="sky" aria-hidden="true">
+        <div class="stars"></div>
+        <div class="twinkle"></div>
+      </div>
+    </main>
+  </body>
+</html>
