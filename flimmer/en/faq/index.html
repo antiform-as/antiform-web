@@ -61,10 +61,14 @@
       <h1>Frequently asked questions</h1>
       <p class="lead">Questions from organisations using Vipps MobilePay through the Antiform platform. Companion to the <a href="/flimmer/en/">guide</a>, which covers the application and configuration steps in order.</p>
       <h2 id="getting-started">Getting started</h2>
+      <h3>Can we add Vipps to our existing website?</h3>
+      <p>No. Vipps through Antiform is available to organisations whose directory runs on the Antiform platform. Antiform builds and operates a custom frontend for each tenant and integrates Vipps into it; we do not add Vipps login or membership payments to a site built and hosted elsewhere. If you are not already a tenant, the platform engagement comes first — this page assumes it.</p>
       <h3>Do we need developers, or a technical person?</h3>
-      <p>No. Antiform is a registered Vipps Platform Partner and does all integration, development and maintenance. Your part is the product order, two branding decisions — company name and logo — and telling us if your website hostname changes.</p>
-      <h3>How long does it take to go live?</h3>
-      <p>The waiting is almost entirely Vipps' KYC and AML review, typically <strong>5–15 business days</strong>. Antiform's own configuration work is one to two days once your sales unit exists. Assume roughly one to three weeks end to end.</p>
+      <p>No. Antiform is a registered Vipps Platform Partner and builds the site as well as doing all integration, development and maintenance. Your part is the product order, two branding decisions — company name and logo — and telling us if the domain your directory runs on changes.</p>
+      <h3>How long does the Vipps part take?</h3>
+      <p>Once you are a tenant, the Vipps track is short: Vipps' KYC and AML review is typically <strong>5–15 business days</strong>, and Antiform's configuration work is one to two days once your sales unit exists. Call it one to three weeks, almost all of it Vipps' review rather than our work.</p>
+      <h3>So how long until we are live?</h3>
+      <p>Longer, and the Vipps track is not what decides it. Your directory is a custom frontend that Antiform designs and builds for you, scoped and scheduled as part of your platform engagement — it is a project, not a signup. The Vipps onboarding above runs alongside that build and is rarely the critical path. Ask us for a timeline for the whole engagement rather than reading one off this page.</p>
       <h3>What do we need before we can apply?</h3>
       <p>Your organisasjonsnummer, a Vipps business portal account or the authority to create one, a bank account in the organisation's name, and the company name and logo members should see.</p>
       <h3>Can we start on Login and add membership payments later?</h3>
@@ -94,7 +98,7 @@
       <p>Yes, at any time, and Vipps does not require our permission. Any cancellation flow offered on your own site is in addition to the Vipps app, never a replacement for it.</p>
       <h3>What happens when a member cancels — do they lose access immediately?</h3>
       <p>No. Cancellation is <em>at period end</em>: the Vipps agreement stops immediately, but the membership stays active and visible until the end of the period they have already paid for, at which point a daily sweep marks it lapsed. The exception is a member who cancels before their mandate was ever activated — there is no paid period to honour, so it clears at once. The same rule applies if Vipps cancels the agreement from their side.</p>
-      <h3>We are changing our website address. Does anything break?</h3>
+      <h3>We are changing the domain our directory runs on. Does anything break?</h3>
       <p>Yes, if we are not told first. The login redirect URI and the payment webhook URL are both registered with Vipps against your exact hostname. Both must be re-registered before the change, or logins and membership charges will fail. Tell Antiform ahead of the switch.</p>
       <h3>What happens if a charge fails?</h3>
       <p>The failure is recorded against the membership, you are notified as the tenant operator, and the membership is flagged for follow-up. After a configurable number of consecutive failures it is suspended rather than charged indefinitely. Setting that threshold and chasing the member are your decisions — the platform surfaces the problem, it does not resolve it.</p>

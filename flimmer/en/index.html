@@ -67,6 +67,18 @@
         integration work is required of you. Antiform is a registered
         <strong>Vipps Platform Partner</strong> and does the integration, development and maintenance.</p>
 
+      <p class="note"><strong>Who this applies to.</strong> Vipps through Antiform is available to
+        organisations whose directory runs on the Antiform platform. Antiform builds and operates a
+        custom frontend for each tenant, and the Vipps integration lives inside that. It is
+        <strong>not</strong> a payment or login integration Antiform adds to a website built and hosted
+        elsewhere.</p>
+
+      <p class="note"><strong>On timing.</strong> The durations in this document cover the
+        <strong>Vipps</strong> side only — the product order, KYC, and configuring Vipps against your
+        sales unit. Building your directory itself is a separate and considerably larger piece of work,
+        scoped and scheduled in your platform engagement with Antiform. The Vipps track runs alongside it
+        and is rarely what decides your launch date.</p>
+
       <h2 id="who-does-what">Who does what</h2>
       <div class="scroll"><table>
         <thead><tr><th>Responsibility</th><th>Owner</th></tr></thead>
@@ -125,7 +137,7 @@
           <tr><td>3</td><td>You submit the product order through the template link</td><td>Your organisation</td><td>Same day</td></tr>
           <tr><td>4</td><td>Vipps runs KYC and AML checks on your organisation</td><td>Vipps MobilePay</td><td><strong>5–15 business days</strong></td></tr>
           <tr><td>5</td><td>On approval, both you and Antiform receive the sales unit details</td><td>Vipps MobilePay</td><td>End of KYC</td></tr>
-          <tr><td>6</td><td>Antiform configures the platform against your sales unit</td><td>Antiform</td><td>1–2 days</td></tr>
+          <tr><td>6</td><td>Antiform configures Vipps against your sales unit</td><td>Antiform</td><td>1–2 days</td></tr>
         </tbody>
       </table></div>
 
@@ -172,7 +184,7 @@
         </tbody>
       </table></div>
 
-      <p>Changing your site's hostname affects the redirect URI and the webhook URL. Tell Antiform
+      <p>Changing the domain your directory runs on affects the redirect URI and the webhook URL. Tell Antiform
         <strong>before</strong> a hostname change, not after — both must be re-registered with Vipps, or
         login and membership charges stop working.</p>
 

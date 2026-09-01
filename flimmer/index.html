@@ -67,6 +67,18 @@
         Dere skal ikke gjøre teknisk integrasjonsarbeid. Antiform er registrert
         <strong>Vipps Platform Partner</strong> og står for integrasjon, utvikling og vedlikehold.</p>
 
+      <p class="note"><strong>Hvem dette gjelder.</strong> Vipps gjennom Antiform er tilgjengelig for
+        organisasjoner som har katalogen sin på Antiform-plattformen. Antiform bygger og drifter et eget
+        nettsted for hver organisasjon, og Vipps-integrasjonen ligger inni det. Det er <strong>ikke</strong>
+        en betalings- eller innloggingsintegrasjon Antiform legger på et nettsted som er bygget og driftet
+        et annet sted.</p>
+
+      <p class="note"><strong>Om tidsbruk.</strong> Varighetene i dette dokumentet gjelder bare
+        <strong>Vipps</strong>-delen — produktbestillingen, KYC, og å konfigurere Vipps mot salgsenheten
+        deres. Å bygge selve katalogen er en egen og vesentlig større jobb, som avtales og planlegges i
+        plattformoppdraget deres med Antiform. Vipps-løpet går parallelt med det, og er sjelden det som
+        avgjør lanseringsdatoen.</p>
+
       <h2 id="hvem-gjor-hva">Hvem gjør hva</h2>
       <div class="scroll"><table>
         <thead><tr><th>Ansvar</th><th>Eier</th></tr></thead>
@@ -126,7 +138,7 @@
           <tr><td>3</td><td>Dere sender inn produktbestillingen via malen</td><td>Organisasjonen</td><td>Samme dag</td></tr>
           <tr><td>4</td><td>Vipps kjører KYC- og AML-kontroll</td><td>Vipps MobilePay</td><td><strong>5–15 virkedager</strong></td></tr>
           <tr><td>5</td><td>Ved godkjenning får både dere og Antiform detaljene om salgsenheten</td><td>Vipps MobilePay</td><td>Slutten av KYC</td></tr>
-          <tr><td>6</td><td>Antiform konfigurerer plattformen mot salgsenheten deres</td><td>Antiform</td><td>1–2 dager</td></tr>
+          <tr><td>6</td><td>Antiform konfigurerer Vipps mot salgsenheten deres</td><td>Antiform</td><td>1–2 dager</td></tr>
         </tbody>
       </table></div>
 
@@ -173,7 +185,7 @@
         </tbody>
       </table></div>
 
-      <p>Endrer dere vertsnavnet på nettstedet, påvirker det både redirect-URI og webhook-URL. Si fra
+      <p>Endrer dere domenet katalogen kjører på, påvirker det både redirect-URI og webhook-URL. Si fra
         til Antiform <strong>før</strong> endringen, ikke etter — begge må registreres på nytt hos
         Vipps, ellers slutter innlogging og kontingenttrekk å virke.</p>
 
