@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="theme-color" content="#060612" />
+    <meta name="description" content="Frequently asked questions from organisations using Vipps MobilePay through the Antiform platform." />
+    <title>FAQ — Vipps on the Antiform platform</title>
+    <style>
+    *,*::before,*::after{box-sizing:border-box}
+    :root{
+      --sky-deep:#030310; --sky-mid:#0a0f2a; --sky-glow:#121a3d;
+      --ink:#e8eaf6; --ink-muted:rgba(232,234,246,.62); --rule:rgba(232,234,246,.14);
+    }
+    html{-webkit-text-size-adjust:100%}
+    body{
+      margin:0; background:var(--sky-deep); color:var(--ink);
+      font-family:system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+      font-size:17px; line-height:1.65; -webkit-font-smoothing:antialiased;
+    }
+    .wrap{max-width:44rem;margin:0 auto;padding:0 1.25rem}
+    header.top{
+      border-bottom:1px solid var(--rule);
+      background:linear-gradient(to bottom,var(--sky-mid),var(--sky-deep));
+    }
+    header.top .wrap{display:flex;flex-wrap:wrap;gap:.75rem 1.5rem;align-items:baseline;padding-top:1.25rem;padding-bottom:1.25rem}
+    .home{font-weight:600;letter-spacing:.02em;text-decoration:none;color:var(--ink)}
+    header.top nav{margin-left:auto;display:flex;gap:1.25rem;font-size:.9rem}
+    a{color:var(--ink);text-decoration:underline;text-underline-offset:.18em;text-decoration-color:rgba(232,234,246,.4)}
+    a:hover{text-decoration-color:var(--ink)}
+    main{padding:3rem 0 4rem}
+    h1{font-size:1.9rem;line-height:1.25;margin:0 0 .6rem;letter-spacing:-.01em}
+    h2{font-size:1.3rem;margin:2.75rem 0 .75rem;letter-spacing:-.005em}
+    h3{font-size:1.05rem;margin:2rem 0 .5rem}
+    p,ul,ol{margin:0 0 1rem}
+    ul,ol{padding-left:1.25rem}
+    li{margin:.3rem 0}
+    .lead{color:var(--ink-muted);font-size:1.08rem;margin-bottom:2rem}
+    .meta{color:var(--ink-muted);font-size:.9rem}
+    table{width:100%;border-collapse:collapse;margin:0 0 1.25rem;font-size:.94rem}
+    th,td{text-align:left;vertical-align:top;padding:.6rem .75rem;border-bottom:1px solid var(--rule)}
+    th{font-weight:600;color:var(--ink)}
+    thead th{border-bottom-color:rgba(232,234,246,.3)}
+    .scroll{overflow-x:auto;-webkit-overflow-scrolling:touch}
+    .note{border-left:2px solid var(--rule);padding:.1rem 0 .1rem 1rem;margin:1.5rem 0;color:var(--ink-muted)}
+    code{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:.88em;
+      background:var(--sky-glow);padding:.12em .38em;border-radius:3px;word-break:break-word}
+    footer{border-top:1px solid var(--rule);padding:2rem 0 3rem;color:var(--ink-muted);font-size:.9rem}
+    footer a{color:var(--ink-muted)}
+    @media (max-width:34rem){ body{font-size:16px} h1{font-size:1.6rem} main{padding:2rem 0 3rem} }
+</style>
+  </head>
+  <body>
+    <header class="top">
+      <div class="wrap">
+        <a class="home" href="/">Antiform</a>
+        <nav><a href="/flimmer/en/">Guide</a><a href="/flimmer/faq/">Norsk</a></nav>
+      </div>
+    </header>
+    <main><div class="wrap">
+      <h1>Frequently asked questions</h1>
+      <p class="lead">Questions from organisations using Vipps MobilePay through the Antiform platform. Companion to the <a href="/flimmer/en/">guide</a>, which covers the application and configuration steps in order.</p>
+      <h2 id="getting-started">Getting started</h2>
+      <h3>Do we need developers, or a technical person?</h3>
+      <p>No. Antiform is a registered Vipps Platform Partner and does all integration, development and maintenance. Your part is the product order, two branding decisions — company name and logo — and telling us if your website hostname changes.</p>
+      <h3>How long does it take to go live?</h3>
+      <p>The waiting is almost entirely Vipps' KYC and AML review, typically <strong>5–15 business days</strong>. Antiform's own configuration work is one to two days once your sales unit exists. Assume roughly one to three weeks end to end.</p>
+      <h3>What do we need before we can apply?</h3>
+      <p>Your organisasjonsnummer, a Vipps business portal account or the authority to create one, a bank account in the organisation's name, and the company name and logo members should see.</p>
+      <h3>Can we start on Login and add membership payments later?</h3>
+      <p>Not on the same sales unit, and this one is worth getting right the first time. A sales unit ordered <em>specifically</em> for Login is permanently Login-only — Vipps cannot add a payment solution to it afterwards, and it cannot be converted. If you expect to collect membership fees at any point, order the payment (ecom) sales unit first and activate Login on it. That leaves you with one sales unit, one Merchant Serial Number and one set of API keys covering both products. Starting Login-only means a second sales unit later, a second set of keys, and another KYC-paced wait.</p>
+      <h2 id="money">Money</h2>
+      <h3>Does Antiform ever hold our money?</h3>
+      <p>No. Funds settle from Vipps directly to your organisation's bank account. Antiform initiates payments against your sales unit and is never a party to the settlement. This is a structural property of the Vipps partner model, not a policy we could change.</p>
+      <h3>Who is the merchant of record?</h3>
+      <p>Your organisation. The sales unit is registered to you, KYC is run on you, and the money is yours.</p>
+      <h3>What does this cost?</h3>
+      <p>Vipps' own fees are set in your product order and are between your organisation and Vipps. Antiform's platform fee is set out in your agreement with Antiform. Mechanically it is invoiced monthly in arrears, as a share of the membership fees successfully collected in that period — see <em>How do we reconcile, and how does Antiform bill us?</em> below. Failed charges are not billed.</p>
+      <h2 id="security">Credentials and security</h2>
+      <h3>Who holds the Vipps API keys?</h3>
+      <p>Antiform. As a platform partner we hold partner credentials centrally and use them to act against your sales unit. You never receive, store, or rotate a Vipps API key, which means there is no key for your organisation to leak or lose.</p>
+      <h3>Where are they kept?</h3>
+      <p>In a managed secrets store, resolved at request time and never written into configuration files, deployment scripts, or source control.</p>
+      <h3>Can we use our own API keys instead?</h3>
+      <p>Technically yes — the platform supports a per-organisation key override, used where an organisation already has its own Vipps merchant keys. It means you take on storing and rotating them. Discuss it before the product order, since it changes how the sales unit is set up.</p>
+      <h3>What member data does Antiform see?</h3>
+      <p>The identity claims your login requests — name, phone number, and email — plus which member holds which mandate and the state and amount of their charges. Antiform never sees card numbers, bank credentials, or the rest of what Vipps holds about a member.</p>
+      <h3>Why does the login ask for email?</h3>
+      <p>Because the product uses it: member enquiries are relayed by email. The address that arrives from Vipps is not treated as verified on its own — members confirm it separately before it is used as a verified contact address.</p>
+      <h2 id="running-it">Running it</h2>
+      <h3>A member says the Vipps login does not work. What do we do?</h3>
+      <p>Tell Antiform, with the member's phone number and roughly when they tried. Most reports are a cancelled login in the Vipps app, which returns the member to a page explaining what happened and offering another attempt.</p>
+      <h3>Can a member cancel their membership mandate in the Vipps app?</h3>
+      <p>Yes, at any time, and Vipps does not require our permission. Any cancellation flow offered on your own site is in addition to the Vipps app, never a replacement for it.</p>
+      <h3>What happens when a member cancels — do they lose access immediately?</h3>
+      <p>No. Cancellation is <em>at period end</em>: the Vipps agreement stops immediately, but the membership stays active and visible until the end of the period they have already paid for, at which point a daily sweep marks it lapsed. The exception is a member who cancels before their mandate was ever activated — there is no paid period to honour, so it clears at once. The same rule applies if Vipps cancels the agreement from their side.</p>
+      <h3>We are changing our website address. Does anything break?</h3>
+      <p>Yes, if we are not told first. The login redirect URI and the payment webhook URL are both registered with Vipps against your exact hostname. Both must be re-registered before the change, or logins and membership charges will fail. Tell Antiform ahead of the switch.</p>
+      <h3>What happens if a charge fails?</h3>
+      <p>The failure is recorded against the membership, you are notified as the tenant operator, and the membership is flagged for follow-up. After a configurable number of consecutive failures it is suspended rather than charged indefinitely. Setting that threshold and chasing the member are your decisions — the platform surfaces the problem, it does not resolve it.</p>
+      <h3>Could a member be charged twice by mistake?</h3>
+      <p>No. Every charge attempt carries an idempotency key, so a retry after a network failure cannot produce a second charge.</p>
+      <h3>How do we reconcile, and how does Antiform bill us?</h3>
+      <p>Vipps settles directly to your bank account. Antiform records every successful charge and invoices you at month end for Antiform's share of the fees collected that period, based on successful charges only. That invoice is between Antiform and your organisation — members never see it. Members see each charge in their own Vipps app, labelled with the product name and description; the platform does not issue separate PDF receipts.</p>
+      <h2 id="support">Support</h2>
+      <h3>Who do we contact?</h3>
+      <p>Antiform first, for anything Vipps-related. Antiform is your first line and escalates to Vipps MobilePay as second line where needed. Going to Vipps directly generally routes back to us and costs a round trip. The exception is the KYC decision on your product order: that is between Vipps and your organisation, and Antiform cannot see the reasoning or appeal it.</p>
+      <h3>How do we reach Antiform, and how quickly do you respond?</h3>
+      <p><a href="mailto:support@antiform.as">support@antiform.as</a> for anything Vipps- or platform-related, <a href="mailto:hei@antiform.as">hei@antiform.as</a> for general enquiries. A reply typically comes within one business day — that is what usually happens rather than a committed service level, as Antiform is a small team. If something is affecting your members right now, say so in the subject line and it goes to the front of the queue.</p>
+      <h3>Our product order was rejected. What now?</h3>
+      <p>Vipps contacts your organisation directly with the reason. Antiform is not told why. Once you have resolved whatever Vipps raised, a new product order can be submitted through the same template link.</p>
+    </div></main>
+    <footer><div class="wrap">Antiform AS — <a href="mailto:hei@antiform.as">hei@antiform.as</a> · <a href="/flimmer/en/">Guide</a> · <a href="/flimmer/faq/">Norsk</a></div></footer>
+  </body>
+</html>
