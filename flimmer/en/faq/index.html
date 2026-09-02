@@ -60,6 +60,7 @@
     <main><div class="wrap">
       <h1>Frequently asked questions</h1>
       <p class="lead">Questions from organisations using Vipps MobilePay through the Antiform platform. Companion to the <a href="/flimmer/en/">guide</a>, which covers the application and configuration steps in order.</p>
+      <p class="note"><strong>Platform mechanics and your agreement are different things.</strong> This page describes how the platform behaves. What your members are charged, who pays it, what your membership terms say, and what Antiform charges you are commercial matters settled per organisation — they are not platform settings, and nothing here should be read as stating yours.</p>
       <h2 id="getting-started">Getting started</h2>
       <h3>Can we add Vipps to our existing website?</h3>
       <p>No. Vipps through Antiform is available to organisations whose directory runs on the Antiform platform. Antiform builds and operates a custom frontend for each tenant and integrates Vipps into it; we do not add Vipps login or membership payments to a site built and hosted elsewhere. If you are not already a tenant, the platform engagement comes first — this page assumes it.</p>
@@ -79,33 +80,33 @@
       <h3>Who is the merchant of record?</h3>
       <p>Your organisation. The sales unit is registered to you, KYC is run on you, and the money is yours.</p>
       <h3>What does this cost?</h3>
-      <p>Vipps' own fees are set in your product order and are between your organisation and Vipps. Antiform's platform fee is set out in your agreement with Antiform. Mechanically it is invoiced monthly in arrears, as a share of the membership fees successfully collected in that period — see <em>How do we reconcile, and how does Antiform bill us?</em> below. Failed charges are not billed.</p>
+      <p>Vipps' own fees are set in your product order and are between your organisation and Vipps.</p><p>Antiform's own charges are whatever your agreement with Antiform says. There is no single platform price model: what is charged, how it is measured, and who pays — the member, or your organisation on their behalf — are commercial terms agreed per organisation, not properties of the platform. This page cannot tell you what yours are.</p>
       <h2 id="security">Credentials and security</h2>
       <h3>Who holds the Vipps API keys?</h3>
       <p>Antiform. As a platform partner we hold partner credentials centrally and use them to act against your sales unit. You never receive, store, or rotate a Vipps API key, which means there is no key for your organisation to leak or lose.</p>
       <h3>Where are they kept?</h3>
       <p>In a managed secrets store, resolved at request time and never written into configuration files, deployment scripts, or source control.</p>
       <h3>Can we use our own API keys instead?</h3>
-      <p>Technically yes — the platform supports a per-organisation key override, used where an organisation already has its own Vipps merchant keys. It means you take on storing and rotating them. Discuss it before the product order, since it changes how the sales unit is set up.</p>
+      <p>You can supply your own sales-unit keys, but they are still held in Antiform's secrets store and rotated by Antiform. The platform resolves every credential from that store at request time; it cannot read a key kept anywhere else, and Antiform does not hand rotation of a live credential to another party. So the choice is which keys the platform uses, not who holds them. Raise it before the product order, since it changes how the sales unit is set up.</p>
       <h3>What member data does Antiform see?</h3>
       <p>The identity claims your login requests — name, phone number, and email — plus which member holds which mandate and the state and amount of their charges. Antiform never sees card numbers, bank credentials, or the rest of what Vipps holds about a member.</p>
       <h3>Why does the login ask for email?</h3>
-      <p>Because the product uses it: member enquiries are relayed by email. The address that arrives from Vipps is not treated as verified on its own — members confirm it separately before it is used as a verified contact address.</p>
+      <p>Because the product uses it. Member enquiries are relayed by email, and it is how the platform tells a member about their membership — status changes, a failed charge, a suspension. The address that arrives from Vipps is not treated as verified on its own; members confirm it separately before it is used as a verified contact address.</p>
       <h2 id="running-it">Running it</h2>
       <h3>A member says the Vipps login does not work. What do we do?</h3>
       <p>Tell Antiform, with the member's phone number and roughly when they tried. Most reports are a cancelled login in the Vipps app, which returns the member to a page explaining what happened and offering another attempt.</p>
       <h3>Can a member cancel their membership mandate in the Vipps app?</h3>
       <p>Yes, at any time, and Vipps does not require our permission. Any cancellation flow offered on your own site is in addition to the Vipps app, never a replacement for it.</p>
       <h3>What happens when a member cancels — do they lose access immediately?</h3>
-      <p>No. Cancellation is <em>at period end</em>: the Vipps agreement stops immediately, but the membership stays active and visible until the end of the period they have already paid for, at which point a daily sweep marks it lapsed. The exception is a member who cancels before their mandate was ever activated — there is no paid period to honour, so it clears at once. The same rule applies if Vipps cancels the agreement from their side.</p>
+      <p>Not under the platform's current behaviour. The Vipps agreement stops immediately, but the membership stays active and visible until the end of the period already paid for, at which point a daily sweep marks it lapsed. A member who cancels before their mandate was ever activated clears at once, since there is no paid period to honour. The same applies if Vipps cancels from their side.</p><p>This is how the platform behaves for every organisation on it — it is not a per-organisation setting. If your membership terms need to work differently, raise it early: that is a change to the platform, not a switch we can flip for you.</p>
       <h3>We are changing the domain our directory runs on. Does anything break?</h3>
       <p>Yes, if we are not told first. The login redirect URI and the payment webhook URL are both registered with Vipps against your exact hostname. Both must be re-registered before the change, or logins and membership charges will fail. Tell Antiform ahead of the switch.</p>
       <h3>What happens if a charge fails?</h3>
-      <p>The failure is recorded against the membership, you are notified as the tenant operator, and the membership is flagged for follow-up. After a configurable number of consecutive failures it is suspended rather than charged indefinitely. Setting that threshold and chasing the member are your decisions — the platform surfaces the problem, it does not resolve it.</p>
+      <p>The failure is recorded against the membership, you are notified as the tenant operator, and the membership is flagged for follow-up. After a set number of consecutive failures it is suspended rather than charged indefinitely.</p><p>That threshold is configured once for the whole platform, not per organisation, so it is not currently yours to set. Chasing the member is: the platform surfaces the problem and stops charging, it does not resolve it.</p>
       <h3>Could a member be charged twice by mistake?</h3>
       <p>No. Every charge attempt carries an idempotency key, so a retry after a network failure cannot produce a second charge.</p>
       <h3>How do we reconcile, and how does Antiform bill us?</h3>
-      <p>Vipps settles directly to your bank account. Antiform records every successful charge and invoices you at month end for Antiform's share of the fees collected that period, based on successful charges only. That invoice is between Antiform and your organisation — members never see it. Members see each charge in their own Vipps app, labelled with the product name and description; the platform does not issue separate PDF receipts.</p>
+      <p>Vipps settles directly to your bank account, and the platform records every charge it raises and whether it succeeded — that record is what reconciliation runs on. Members see each charge in their own Vipps app, labelled with the product name and description; the platform does not issue separate PDF receipts.</p><p>How Antiform then bills your organisation follows your agreement, not a platform rule. Any invoice is between Antiform and you; members never see it.</p>
       <h2 id="support">Support</h2>
       <h3>Who do we contact?</h3>
       <p>Antiform first, for anything Vipps-related. Antiform is your first line and escalates to Vipps MobilePay as second line where needed. Going to Vipps directly generally routes back to us and costs a round trip. The exception is the KYC decision on your product order: that is between Vipps and your organisation, and Antiform cannot see the reasoning or appeal it.</p>

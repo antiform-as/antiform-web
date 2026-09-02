@@ -60,6 +60,7 @@
     <main><div class="wrap">
       <h1>Ofte stilte spørsmål</h1>
       <p class="lead">Spørsmål fra organisasjoner som bruker Vipps MobilePay gjennom Antiform-plattformen. Følgedokument til <a href="/flimmer/">veiledningen</a>, som tar søknad og oppsett i rekkefølge.</p>
+      <p class="note"><strong>Plattformens virkemåte og avtalen deres er to ulike ting.</strong> Denne siden beskriver hvordan plattformen oppfører seg. Hva medlemmene deres betaler, hvem som betaler det, hva medlemsvilkårene deres sier, og hva Antiform tar betalt er kommersielle forhold som avtales per organisasjon — de er ikke innstillinger i plattformen, og ingenting her skal leses som en beskrivelse av deres vilkår.</p>
       <h2 id="kom-i-gang">Kom i gang</h2>
       <h3>Kan vi legge Vipps til på nettstedet vi allerede har?</h3>
       <p>Nei. Vipps gjennom Antiform er tilgjengelig for organisasjoner som har katalogen sin på Antiform-plattformen. Antiform bygger og drifter et eget nettsted for hver organisasjon og integrerer Vipps i det; vi legger ikke Vipps-innlogging eller kontingentbetaling på et nettsted som er bygget og driftet et annet sted. Er dere ikke kunde allerede, kommer plattformoppdraget først — denne siden forutsetter det.</p>
@@ -79,33 +80,33 @@
       <h3>Hvem er merchant of record?</h3>
       <p>Organisasjonen deres. Salgsenheten er registrert på dere, KYC kjøres på dere, og pengene er deres.</p>
       <h3>Hva koster dette?</h3>
-      <p>Vipps' egne gebyrer settes i produktbestillingen og er et forhold mellom organisasjonen deres og Vipps. Antiforms plattformhonorar går fram av avtalen deres med Antiform. Rent praktisk faktureres det månedlig etterskuddsvis, som en andel av kontingenten som faktisk ble innkrevd i perioden — se <em>Hvordan avstemmer vi, og hvordan fakturerer Antiform oss?</em> under. Mislykkede trekk faktureres ikke.</p>
+      <p>Vipps' egne gebyrer settes i produktbestillingen og er et forhold mellom organisasjonen deres og Vipps.</p><p>Hva Antiform tar betalt går fram av avtalen deres med Antiform. Det finnes ingen felles prismodell for plattformen: hva som faktureres, hvordan det måles, og hvem som betaler — medlemmet, eller organisasjonen på medlemmets vegne — er kommersielle vilkår som avtales per organisasjon, ikke egenskaper ved plattformen. Denne siden kan ikke fortelle dere hva deres er.</p>
       <h2 id="sikkerhet">Nøkler og sikkerhet</h2>
       <h3>Hvem holder Vipps-API-nøklene?</h3>
       <p>Antiform. Som plattformpartner holder vi partnernøkler sentralt og bruker dem til å handle mot salgsenheten deres. Dere mottar, lagrer eller rullerer aldri en Vipps-nøkkel, som betyr at det ikke finnes noen nøkkel organisasjonen deres kan lekke eller miste.</p>
       <h3>Hvor oppbevares de?</h3>
       <p>I en forvaltet nøkkeltjeneste, hentet ved forespørselstidspunkt og aldri skrevet inn i konfigurasjonsfiler, utrullingsskript eller kildekode.</p>
       <h3>Kan vi bruke våre egne API-nøkler i stedet?</h3>
-      <p>Teknisk sett ja — plattformen støtter en overstyring per organisasjon, brukt der en organisasjon allerede har egne Vipps-nøkler. Det betyr at dere selv tar på dere å lagre og rullere dem. Ta det opp før produktbestillingen, siden det endrer hvordan salgsenheten settes opp.</p>
+      <p>Dere kan oppgi deres egne salgsenhetsnøkler, men de oppbevares fortsatt i Antiforms nøkkeltjeneste og rulleres av Antiform. Plattformen henter alle nøkler derfra ved forespørselstidspunkt; den kan ikke lese en nøkkel som ligger et annet sted, og Antiform overlater ikke rullering av en aktiv nøkkel til andre. Valget står altså om hvilke nøkler plattformen bruker, ikke om hvem som holder dem. Ta det opp før produktbestillingen, siden det endrer hvordan salgsenheten settes opp.</p>
       <h3>Hvilke medlemsdata ser Antiform?</h3>
       <p>Identitetsopplysningene innloggingen ber om — navn, telefonnummer og e-post — pluss hvilket medlem som har hvilken avtale, og status og beløp på trekkene deres. Antiform ser aldri kortnumre, bankopplysninger eller resten av det Vipps har om et medlem.</p>
       <h3>Hvorfor ber innloggingen om e-post?</h3>
-      <p>Fordi produktet bruker den: henvendelser fra medlemmer videreformidles på e-post. Adressen som kommer fra Vipps regnes ikke som verifisert i seg selv — medlemmet bekrefter den separat før den brukes som verifisert kontaktadresse.</p>
+      <p>Fordi produktet bruker den. Henvendelser fra medlemmer videreformidles på e-post, og det er slik plattformen forteller et medlem om medlemskapet — statusendringer, et mislykket trekk, en pause. Adressen som kommer fra Vipps regnes ikke som verifisert i seg selv; medlemmet bekrefter den separat før den brukes som verifisert kontaktadresse.</p>
       <h2 id="drift">Drift</h2>
       <h3>Et medlem sier at Vipps-innlogging ikke virker. Hva gjør vi?</h3>
       <p>Si fra til Antiform, med medlemmets telefonnummer og omtrent når de forsøkte. De fleste meldingene er en avbrutt innlogging i Vipps-appen, som sender medlemmet til en side som forklarer hva som skjedde og tilbyr et nytt forsøk.</p>
       <h3>Kan et medlem si opp betalingsavtalen i Vipps-appen?</h3>
       <p>Ja, når som helst, og Vipps trenger ikke vår tillatelse. En oppsigelsesflyt på deres eget nettsted kommer i tillegg til Vipps-appen, aldri i stedet for.</p>
       <h3>Hva skjer når et medlem sier opp — mister de tilgang med én gang?</h3>
-      <p>Nei. Oppsigelse gjelder <em>ved periodeslutt</em>: Vipps-avtalen stoppes umiddelbart, men medlemskapet er aktivt og synlig ut perioden de allerede har betalt for, og en daglig jobb markerer det da som utløpt. Unntaket er et medlem som sier opp før avtalen noen gang ble aktivert — da finnes ingen betalt periode å innfri, og det ryddes med én gang. Samme regel gjelder hvis Vipps avslutter avtalen fra sin side.</p>
+      <p>Ikke slik plattformen fungerer i dag. Vipps-avtalen stoppes umiddelbart, men medlemskapet er aktivt og synlig ut perioden det allerede er betalt for, og en daglig jobb markerer det da som utløpt. Et medlem som sier opp før avtalen noen gang ble aktivert, ryddes med én gang, siden det ikke finnes en betalt periode å innfri. Samme gjelder hvis Vipps avslutter avtalen fra sin side.</p><p>Slik oppfører plattformen seg for alle organisasjoner på den — det er ikke en innstilling per organisasjon. Trenger medlemsvilkårene deres å fungere annerledes, si fra tidlig: det er en endring i plattformen, ikke en bryter vi kan slå på for dere.</p>
       <h3>Vi bytter domene for katalogen. Går noe i stykker?</h3>
       <p>Ja, hvis vi ikke får vite det først. Både redirect-URI for innlogging og webhook-URL for betaling er registrert hos Vipps mot deres nøyaktige vertsnavn. Begge må registreres på nytt før endringen, ellers vil innlogging og kontingenttrekk feile. Si fra til Antiform i forkant.</p>
       <h3>Hva skjer hvis et trekk feiler?</h3>
-      <p>Feilen registreres på medlemskapet, dere varsles som driftsansvarlig, og medlemskapet flagges for oppfølging. Etter et konfigurerbart antall feil på rad settes det på pause i stedet for å trekkes i det uendelige. Å sette terskelen og følge opp medlemmet er deres avgjørelser — plattformen synliggjør problemet, den løser det ikke.</p>
+      <p>Feilen registreres på medlemskapet, dere varsles som driftsansvarlig, og medlemskapet flagges for oppfølging. Etter et fast antall feil på rad settes det på pause i stedet for å trekkes i det uendelige.</p><p>Den terskelen settes én gang for hele plattformen, ikke per organisasjon, så den er foreløpig ikke deres å bestemme. Å følge opp medlemmet er det: plattformen synliggjør problemet og stopper trekkene, den løser det ikke.</p>
       <h3>Kan et medlem bli trukket to ganger ved en feil?</h3>
       <p>Nei. Hvert trekkforsøk har en idempotensnøkkel, så et nytt forsøk etter en nettverksfeil kan ikke gi et trekk nummer to.</p>
       <h3>Hvordan avstemmer vi, og hvordan fakturerer Antiform oss?</h3>
-      <p>Vipps gjør opp direkte til bankkontoen deres. Antiform registrerer hvert vellykket trekk og fakturerer dere ved månedsslutt for Antiforms andel av det som ble innkrevd i perioden, basert kun på vellykkede trekk. Den fakturaen er mellom Antiform og organisasjonen deres — medlemmene ser den aldri. Medlemmene ser hvert trekk i sin egen Vipps-app, merket med produktnavn og beskrivelse; plattformen sender ikke egne PDF-kvitteringer.</p>
+      <p>Vipps gjør opp direkte til bankkontoen deres, og plattformen registrerer hvert trekk den kjører og om det gikk gjennom — det er den registreringen avstemmingen bygger på. Medlemmene ser hvert trekk i sin egen Vipps-app, merket med produktnavn og beskrivelse; plattformen sender ikke egne PDF-kvitteringer.</p><p>Hvordan Antiform så fakturerer organisasjonen deres følger avtalen deres, ikke en plattformregel. En eventuell faktura er mellom Antiform og dere; medlemmene ser den aldri.</p>
       <h2 id="support">Support</h2>
       <h3>Hvem kontakter vi?</h3>
       <p>Antiform først, for alt som gjelder Vipps. Antiform er førstelinje og eskalerer til Vipps MobilePay som andrelinje ved behov. Å gå direkte til Vipps havner som regel tilbake hos oss og koster en runde ekstra. Unntaket er KYC-avgjørelsen på produktbestillingen: den er mellom Vipps og organisasjonen deres, og Antiform kan verken se begrunnelsen eller anke den.</p>

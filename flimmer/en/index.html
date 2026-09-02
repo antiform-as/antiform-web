@@ -73,6 +73,11 @@
         <strong>not</strong> a payment or login integration Antiform adds to a website built and hosted
         elsewhere.</p>
 
+      <p class="note"><strong>Platform mechanics and your agreement are different things.</strong> This
+        document describes how the platform behaves. What your members are charged, who pays it, what
+        your membership terms say, and what Antiform charges you are commercial matters settled per
+        organisation — not platform settings. Nothing here states your terms.</p>
+
       <p class="note"><strong>On timing.</strong> The durations in this document cover the
         <strong>Vipps</strong> side only — the product order, KYC, and configuring Vipps against your
         sales unit. Building your directory itself is a separate and considerably larger piece of work,
@@ -208,19 +213,24 @@
       <p><strong>When a charge fails</strong> — insufficient funds, an expired mandate, a member
         cancellation — the platform records the failure against the membership, <strong>notifies you as
         the tenant operator</strong>, and flags the membership for follow-up. After a configurable number
-        of consecutive failures the membership is suspended rather than charged indefinitely. Deciding
-        that threshold, and who chases the member, is yours.</p>
+        of consecutive failures the membership is suspended rather than charged indefinitely. That
+        threshold is configured once for the whole platform rather than per organisation, so it is not
+        currently yours to set. Chasing the member is: the platform surfaces the problem and stops
+        charging, it does not resolve it.</p>
 
-      <p><strong>When a member cancels.</strong> Cancellation is <em>at period end</em>. The Vipps
+      <p><strong>When a member cancels.</strong> Under the platform's current behaviour, cancellation
+        takes effect <em>at period end</em>, uniformly for every organisation — it is not a
+        per-organisation setting. The Vipps
         agreement stops immediately, but the membership stays active and visible until the end of the
         period already paid for; a daily sweep then marks it lapsed. A member who cancels before their
         mandate was ever activated is cleared immediately, since there is no paid period to honour. The
         same rule applies when Vipps cancels the agreement from their side.</p>
 
       <p><strong>Reconciliation and invoicing.</strong> Vipps settles money directly to your bank
-        account. Antiform records every successful charge and, at month end, invoices you for Antiform's
-        share of the membership fees collected in that period — based on successful charges only. That
-        invoice is Antiform to your organisation; it is not something your members see.</p>
+        account, and the platform records every charge it raises and whether it succeeded — that record
+        is what reconciliation runs on. How Antiform then bills your organisation follows your agreement
+        rather than a platform rule; any invoice is between Antiform and you, and members never see
+        it.</p>
 
       <p><strong>Member receipts.</strong> Each successful charge appears in the member's own Vipps app,
         labelled with the product name and description sent at mandate and charge time. The platform does
