@@ -66,11 +66,11 @@
       <p class="note"><strong>Platform mechanics and your agreement are different things.</strong> This page describes how the platform behaves. What your members are charged, who pays it, what your membership terms say, and what Antiform charges you are commercial matters settled per organisation — they are not platform settings, and nothing here should be read as stating yours.</p>
       <h2 id="getting-started">Getting started</h2>
       <h3>Can we add Vipps to our existing website?</h3>
-      <p>No. Vipps through Antiform is available to organisations whose website runs on Flimmer, our platform. Antiform builds and operates a custom website for each tenant and integrates Vipps into it; we do not add Vipps login or membership payments to a site built and hosted elsewhere. If you are not already a tenant, the platform engagement comes first — this page assumes it.</p>
+      <p>No. Vipps through Antiform is available to organisations whose website runs on Flimmer, our platform. Antiform builds and operates a custom website for each organisation and integrates Vipps into it; we do not add Vipps login or membership payments to a site built and hosted elsewhere. If your organisation is not on Flimmer yet, the platform engagement comes first — this page assumes it.</p>
       <h3>Do we need developers, or a technical person?</h3>
       <p>No. Antiform is a registered Vipps Platform Partner and builds the site as well as doing all integration, development and maintenance. Your part is the product order, two branding decisions — company name and logo — and telling us if the domain your directory runs on changes.</p>
       <h3>How long does the Vipps part take?</h3>
-      <p>Once you are a tenant, the Vipps track is short: Vipps' KYC and AML review is typically <strong>5–15 business days</strong>, and Antiform's configuration work is one to two days once your sales unit exists. Call it one to three weeks, almost all of it Vipps' review rather than our work.</p>
+      <p>Once you are on Flimmer, the Vipps track is short: Vipps' KYC and AML review is typically <strong>5–15 business days</strong>, and Antiform's configuration work is one to two days once your sales unit exists. Call it one to three weeks, almost all of it Vipps' review rather than our work.</p>
       <h3>So how long until we are live?</h3>
       <p>Longer, and the Vipps track is not what decides it. Your directory is a custom frontend that Antiform designs and builds for you, scoped and scheduled as part of your platform engagement — it is a project, not a signup. The Vipps onboarding above runs alongside that build and is rarely the critical path. Ask us for a timeline for the whole engagement rather than reading one off this page.</p>
       <h3>What do we need before we can apply?</h3>
@@ -105,7 +105,11 @@
       <h3>We are changing the domain our directory runs on. Does anything break?</h3>
       <p>Yes, if we are not told first. The login redirect URI and the payment webhook URL are both registered with Vipps against your exact hostname. Both must be re-registered before the change, or logins and membership charges will fail. Tell Antiform ahead of the switch.</p>
       <h3>What happens if a charge fails?</h3>
-      <p>The failure is recorded against the membership, you are notified as the tenant operator, and the membership is flagged for follow-up. After a set number of consecutive failures it is suspended rather than charged indefinitely.</p><p>That threshold is configured once for the whole platform, not per organisation, so it is not currently yours to set. Chasing the member is: the platform surfaces the problem and stops charging, it does not resolve it.</p>
+      <p>The failure is recorded against the membership, your administrators are notified, and the membership is flagged for follow-up. After a set number of consecutive failures it is suspended rather than charged indefinitely. Vipps keeps trying a failed charge for seven days before it counts as failed.</p><p>That threshold is configured once for the whole platform, not per organisation, so it is not currently yours to set. Chasing the member is: the platform surfaces the problem and stops charging, it does not resolve it.</p>
+      <h3>What happens when we change a fee?</h3>
+      <p>Every member whose price changes is emailed their old and new price and the date it applies, and their Vipps agreement is updated to match. They do not approve it again. You set prices, campaigns and single-member reductions yourself, in your admin under membership settings.</p>
+      <h3>Can we refund a member?</h3>
+      <p>Ask Antiform. We refund in full or in part, and the money goes back to the member through Vipps. Refunds are not in your own admin today.</p>
       <h3>Could a member be charged twice by mistake?</h3>
       <p>No. Every charge attempt carries an idempotency key, so a retry after a network failure cannot produce a second charge.</p>
       <h3>How do we reconcile, and how does Antiform bill us?</h3>

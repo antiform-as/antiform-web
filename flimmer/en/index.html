@@ -72,7 +72,7 @@
 
       <p class="note"><strong>Who this applies to.</strong> Vipps through Antiform is available to
         organisations whose website runs on Flimmer, our platform. Antiform builds and operates a
-        custom frontend for each tenant, and the Vipps integration lives inside that. It is
+        custom frontend for each organisation, and the Vipps integration lives inside that. It is
         <strong>not</strong> a payment or login integration Antiform adds to a website built and hosted
         elsewhere.</p>
 
@@ -166,7 +166,7 @@
 
       <h2 id="configure">2. How the solution is configured</h2>
       <p>Almost all configuration is Antiform's job. This section exists so you know what is being set on
-        your behalf, and which two items need a decision from you.</p>
+        your behalf, and which items need a decision from you.</p>
 
       <h3>What you decide</h3>
       <ul>
@@ -175,6 +175,11 @@
           recognise your organisation by — not a legal entity name they will not place. Vipps requires
           both to be set before approving the Login product.</li>
         <li><strong>Terms and privacy URLs</strong>, if you collect consents.</li>
+        <li><strong>Your membership fees.</strong> In your own admin, under membership settings, you set
+          each fee plan: its price, monthly or yearly, whether the first period is paid when the member
+          approves, and any campaign (a lower price until a date, for a number of periods, or until an
+          event). You can also give a single member a reduction. Members see the plan's name and
+          description in the Vipps app.</li>
       </ul>
 
       <p>The name and logo are set on <strong>your</strong> sales unit, by you, on the business portal —
@@ -214,12 +219,20 @@
         charge attempt carries an idempotency key, so a network retry cannot double-charge a member.</p>
 
       <p><strong>When a charge fails</strong> — insufficient funds, an expired mandate, a member
-        cancellation — the platform records the failure against the membership, <strong>notifies you as
-        the tenant operator</strong>, and flags the membership for follow-up. After a set number
+        cancellation — Vipps keeps trying for seven days. If it still fails, the platform records the
+        failure against the membership, <strong>notifies your administrators</strong>, and flags the membership for follow-up. After a set number
         of consecutive failures the membership is suspended rather than charged indefinitely. That
         threshold is configured once for the whole platform rather than per organisation, so it is not
         currently yours to set. Chasing the member is: the platform surfaces the problem and stops
         charging, it does not resolve it.</p>
+
+      <p><strong>Changing a fee.</strong> When you change a plan's price, every member whose price changes
+        is emailed their old and new price and the date it applies, and their Vipps agreement is updated
+        to match. Members do not approve the agreement again. A reduction you give one member reaches
+        their agreement by the next morning.</p>
+
+      <p><strong>Refunds.</strong> Ask Antiform. We can refund a charge in full or in part, and the money
+        goes back to the member through Vipps. You cannot refund from your own admin today.</p>
 
       <p><strong>When a member cancels.</strong> Under the platform's current behaviour, cancellation
         takes effect <em>at period end</em>, uniformly for every organisation — it is not a
